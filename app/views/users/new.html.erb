@@ -4,8 +4,8 @@
 	<%= f.text_field :name %>
 	<br>
 		<h2>Subscription Selection</h2>
-		<%#= render :partial => 'checkbox', :locals => { :f => f } %>
-		<%= render :partial => 'select' %>
+		<%= render :partial => 'checkbox', :locals => { :f => f } %>
+		<%#= render :partial => 'select' %>
 		<%= hidden_field_tag "user[subscription_plan_ids][]" %>
 		<br>
 	<%= f.submit %>
