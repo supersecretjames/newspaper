@@ -1,0 +1,13 @@
+<% Newspaper.includes(:subscription_plans).each do |newspaper| %>
+			<b><%= newspaper.title %>
+				<select name="user[subscription_plan_ids][]">
+					<option value=''></option>
+					<% newspaper.subscription_plans.each do |plan| %>
+						<option value="<%= plan.id %>">
+							<%= "#{plan.name}, $#{plan.price}, " %>
+							<%= "#{plan.is_daily ? 'Daily' : 'Weekly'}" %> 
+						</option>
+					<% end %>
+				</select>
+				<br>
+		<% end %>

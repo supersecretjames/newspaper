@@ -1,0 +1,9 @@
+<% f.fields_for(:subscriptions) do |sub| %>		
+	<label for="user_subscription_ids">Subscription Plans</label>
+	<% SubscriptionPlan.all.each_with_index do |plan, i| %>
+		<input type="checkbox" name="user[subscription_ids][]" value="<%= i + 1 %>"
+			<%= "#{plan.name}, $#{plan.price}, #{plan.is_daily ? 'Daily' : 'Weekly'}" %> 
+	<% end %>
+<% end %>
+
+
