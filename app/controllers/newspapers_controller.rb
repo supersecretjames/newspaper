@@ -2,6 +2,7 @@ class NewspapersController < ApplicationController
 
 	def new
 		@newspaper = Newspaper.new
+		@newspaper.subscription_plans.build
 	end
 
 	def create
@@ -16,5 +17,6 @@ class NewspapersController < ApplicationController
 
 	def show
 		@newspaper = Newspaper.find(params[:id])
+		@subscription_plans = SubscriptionPlan.where(:newspaper_id => @newspaper.id)
 	end
 end

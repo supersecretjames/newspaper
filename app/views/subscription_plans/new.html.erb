@@ -1,0 +1,16 @@
+<h1>Create Subscription Plan</h1>
+<%= form_for(@subscription_plan) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :price %>
+	<%= f.number_field :price %>
+	<br>
+	<%= f.label :is_daily, "Daily", :value => true %>
+	<%= f.radio_button :is_daily, "true" %>
+	<%= f.label :is_daily, "Weekly", :value => false %>
+	<%= f.radio_button :is_daily, "false" %>
+	<br>
+	<%= f.hidden_field :newspaper_id, :value => params[:newspaper_id] %>
+	<%= f.submit %>
+<% end %>

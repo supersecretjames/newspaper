@@ -1,0 +1,10 @@
+<h1><%= @subscription_plan.name %></h1>
+<p>
+	<%= "Price: #{@subscription_plan.price}" %>
+	<br>
+	<% if @subscription_plan.is_daily %>
+		<%= "Type: Daily" %>
+	<% else %>
+		<%= "Type: Weekly" %>
+	<% end %>
+</p>

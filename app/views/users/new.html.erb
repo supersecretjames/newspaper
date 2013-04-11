@@ -1,0 +1,17 @@
+<h1>Create User</h1>
+<%= form_for(@user) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<h2>Subscription Selection</h2>
+	<%= f.fields_for(:subscriptions) do |sub| %>
+		<% i = 0 %>
+		<% while i < Newspaper.count %>
+			<%= sub.collection_select :subscription_plan_id, SubscriptionPlan.where(:newspaper_id => i), :id, :name, :prompt => true %>
+			<% i += 1 %>
+		<% end %>
+	<% end %>
+	<br>
+
+	<%= f.submit %>
+<% end %>

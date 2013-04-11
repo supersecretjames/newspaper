@@ -2,3 +2,13 @@
 <p>
 	<%= "Editor: #{@newspaper.editor}" %>
 </p>
+<h2>Subscription Plans</h2>
+<p>
+	<ul>
+	<% @subscription_plans.each do |plan| %>
+		<li><%= "Plan: #{plan.name}, Rate: $#{plan.price}" %>
+			<br>
+		<%= "Frequency: #{plan.is_daily ? 'Daily' : 'Weekly'}" %></li>
+	<% end %>
+	</ul>
+</p>

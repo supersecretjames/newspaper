@@ -1,0 +1,8 @@
+	<%= f.fields_for(:subscriptions) do |sub| %>
+		<% SubscriptionPlan.all.each do |plan| %>
+			<% check_box_tag("subscription_plan_id",
+											 plan.id,
+											 id="sub_id#{plan.id}"  
+				) 
+			%>
+			<% label_tag "sub_id#{plan.id}", plan.name %>
